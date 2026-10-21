@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relative Clauses — інтерактивний урок</title>
+<style>
+:root{--ink:#20233a;--muted:#68708a;--paper:#f7f8fc;--purple:#6558d3;--purple2:#eeeaff;--mint:#dff6ec;--orange:#fff0dc;--line:#e4e6f0;--good:#18794e;--bad:#b42318}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+header{background:linear-gradient(125deg,#25294b,#5748b8 65%,#8a7ce8);color:white;padding:28px max(22px,calc((100% - 1100px)/2)) 34px}
+.topline{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.tag{border:1px solid #ffffff60;border-radius:99px;padding:6px 12px;font-size:.82rem}
+h1{font-size:clamp(2rem,5vw,3.8rem);line-height:1.06;letter-spacing:-.04em;margin:28px 0 12px}.lead{max-width:700px;color:#efedff;font-size:1.1rem}
+.progress-wrap{height:6px;background:#ffffff35;border-radius:99px;margin-top:24px;overflow:hidden}.progress{height:100%;width:0;background:#b9f3d8;transition:width .25s}
+nav{position:sticky;top:0;z-index:5;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px max(14px,calc((100% - 1100px)/2))}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.9rem;padding:8px 12px;border-radius:10px}nav a:hover{background:var(--purple2);color:var(--purple)}
+main{max-width:1100px;margin:auto;padding:26px 20px 70px}.section{padding:30px 0;scroll-margin-top:72px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.75rem;color:var(--purple)}h2{font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.03em;margin:5px 0 10px}h3{margin:0 0 8px;font-size:1.15rem}.sub{color:var(--muted);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 8px 28px #292a4a08}.card p{margin:8px 0}.def{border-top:5px solid #48b78a}.nondef{border-top:5px solid #edaa4c}.pill{display:inline-block;border-radius:99px;padding:4px 10px;font-size:.78rem;font-weight:800}.pill.green{background:var(--mint);color:#176b4a}.pill.gold{background:var(--orange);color:#8b4d0b}.example{font-size:1.08rem;font-weight:650;margin:16px 0 8px!important}.translation{color:var(--muted);font-size:.94rem}.key{background:#f1efff;color:#4435ac;border-radius:6px;padding:1px 5px}
+.callout{border-radius:16px;padding:16px 18px;background:#f0efff;border:1px solid #e0dcff;margin-top:16px}.callout strong{color:#4435ac}.rule-list{padding-left:20px}.rule-list li{margin:7px 0}
+.compare{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden;border:1px solid var(--line)}.compare th,.compare td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line)}.compare th{background:#f0efff}.compare tr:last-child td{border-bottom:0}
+.demo{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px}.demo button,.btn{border:0;border-radius:12px;background:var(--purple);color:white;padding:11px 16px;font-weight:750;cursor:pointer;font-size:.95rem}.demo button.secondary,.btn.secondary{background:#efedff;color:#4435ac}.demo button:hover,.btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+.reveal{display:none;margin-top:14px;padding:14px;background:#f5f3ff;border-radius:12px}.reveal.show{display:block}
+.quiz{display:grid;grid-template-columns:1fr;gap:15px}.q{background:white;border:1px solid var(--line);border-radius:17px;padding:20px}.qhead{display:flex;gap:10px;align-items:flex-start}.num{flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:var(--purple2);color:var(--purple);font-weight:850}.q p{margin:3px 0 12px;font-weight:700}.options{display:flex;flex-wrap:wrap;gap:8px}.option{border:1px solid #d9dbea;background:white;color:var(--ink);padding:9px 13px;border-radius:11px;cursor:pointer}.option.selected{border-color:var(--purple);background:var(--purple2);color:#4435ac}.option.correct{border-color:#5dbb8d;background:#e1f7ec;color:#176b4a}.option.wrong{border-color:#e69a95;background:#fff0ef;color:#a62a21}.feedback{font-size:.9rem;margin-top:10px;color:var(--muted);min-height:1.2em}.feedback.good{color:var(--good)}.feedback.bad{color:var(--bad)}
+.scorebar{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#25294b;color:white;padding:20px;border-radius:18px;margin-top:18px}.scorebar p{margin:4px 0;color:#e3e4f5}.score{font-size:2rem;font-weight:850}.small{font-size:.85rem;color:var(--muted)}
+footer{text-align:center;padding:26px;color:var(--muted);font-size:.85rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}header{padding-top:22px}.card{padding:18px}.compare{font-size:.9rem}.compare th,.compare td{padding:10px}}
+@media print{nav,.demo,.btn,.options{display:none!important}body{background:white}.card,.q{break-inside:avoid;box-shadow:none}header{background:#25294b!important;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topline"><span class="tag">ENGLISH GRAMMAR · MINI LESSON</span><span class="tag">📚 Пояснення + практика</span></div>
+  <h1>Relative Clauses<br><span style="color:#b9f3d8">без плутанини</span></h1>
+  <p class="lead">Як зрозуміти різницю між <b>Defining</b> та <b>Non-defining Relative Clauses</b>, правильно використовувати займенники й не забувати про коми.</p>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+</header>
+<nav>
+  <a href="#idea">Головна ідея</a><a href="#defining">Defining</a><a href="#nondefining">Non-defining</a><a href="#rules">Шпаргалка</a><a href="#practice">Вправа</a>
+</nav>
+<main>
+<section class="section" id="idea">
+  <div class="eyebrow">01 · THE BIG IDEA</div><h2>Потрібна чи додаткова інформація?</h2>
+  <p class="sub">Relative clause — частина речення, яка пояснює, про яку людину, річ або місце ми говоримо.</p>
+  <div class="grid">
+    <article class="card def"><span class="pill green">DEFINING</span><h3 style="margin-top:12px">Допомагає визначити</h3><p>Відповідає на запитання <b>«Який саме? Хто саме?»</b> Без неї зміст може змінитися.</p><p class="example">The girl <span class="key">who lives next door</span> is my friend.</p><p class="translation">Дівчина, яка живе по сусідству, — моя подруга.</p><div class="callout"><strong>Ком немає.</strong> Ця частина допомагає зрозуміти, про яку дівчину йдеться.</div></article>
+    <article class="card nondef"><span class="pill gold">NON-DEFINING</span><h3 style="margin-top:12px">Додає подробицю</h3><p>Ми вже знаємо, про кого або про що говоримо. Частину можна прибрати, і головна думка збережеться.</p><p class="example">My sister, <span class="key">who lives in Kyiv</span>, is a doctor.</p><p class="translation">Моя сестра, яка живе в Києві, — лікарка.</p><div class="callout" style="background:#fff6e9;border-color:#ffe4bf"><strong style="color:#8b4d0b">Коми потрібні.</strong> Інформація про місце проживання — додаткова.</div></article>
+  </div>
+  <div class="demo"><button class="secondary" onclick="toggle('thought')">💡 Перевір: що зміниться?</button></div>
+  <div class="reveal" id="thought">Порівняй: <b>The students who studied passed.</b> — склали ті учні, які вчилися. <b>The students, who studied, passed.</b> — ми говоримо про конкретну групу учнів і додаємо, що вони вчилися. Коми можуть змінювати значення!</div>
+</section>
+<section class="section" id="defining">
+  <div class="eyebrow">02 · NO COMMAS</div><h2>Defining Relative Clauses</h2><p class="sub">Необхідна інформація — тому підрядну частину не відокремлюємо комами.</p>
+  <div class="grid">
+    <article class="card"><h3>Кого або що описуємо?</h3><ul class="rule-list"><li><b>who</b> — люди</li><li><b>which</b> — речі й тварини</li><li><b>that</b> — люди або речі</li><li><b>whose</b> — чия належність</li><li><b>where</b> — місце</li></ul></article>
+    <article class="card"><h3>Приклади</h3><p><b>The book <span class="key">that you bought</span></b> is on the desk.</p><p class="translation">Книжка, яку ти купив, лежить на столі.</p><p><b>The boy <span class="key">whose dad is a chef</span></b> is Alex.</p><p class="translation">Хлопець, чий тато кухар, — Алекс.</p><p><b>This is the café <span class="key">where we met</span>.</b></p><p class="translation">Це кафе, де ми зустрілися.</p></article>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Чи можна пропустити who / which / that?</h3><div class="grid"><div><span class="pill green">МОЖНА</span><p><b>The film (that) I watched</b> was great.</p><p class="translation">Після займенника є підмет <i>I</i>; займенник — додаток.</p></div><div><span class="pill gold">НЕ МОЖНА</span><p><b>The film that won the award</b> is great.</p><p class="translation"><i>That</i> — підмет, бо саме фільм отримав нагороду.</p></div></div><div class="callout"><strong>Підказка:</strong> якщо після займенника одразу стоїть дієслово, він часто є підметом — його не можна пропустити.</div></div>
+</section>
+<section class="section" id="nondefining">
+  <div class="eyebrow">03 · COMMAS REQUIRED</div><h2>Non-defining Relative Clauses</h2><p class="sub">Додаткова інформація відокремлюється комами. Якщо вона стоїть усередині речення, кома потрібна з обох боків.</p>
+  <div class="grid">
+    <article class="card nondef"><h3>Приклади</h3><p class="example">Mr Brown, <span class="key">who is our geography teacher</span>, is quite old.</p><p class="translation">Містер Браун, який є нашим учителем географії, досить старий.</p><p class="example">Our car, <span class="key">which cost us a lot</span>, keeps breaking down.</p><p class="translation">Наша машина, яка дорого нам коштувала, постійно ламається.</p></article>
+    <article class="card"><h3>Три важливі правила</h3><ul class="rule-list"><li>Використовуємо <b>who</b> для людей і <b>which</b> для речей.</li><li><b>That не можна</b> використовувати замість who/which.</li><li>Займенник <b>не можна пропускати</b>, навіть якщо він є додатком.</li></ul><div class="callout"><strong>Which</strong> може стосуватися цілого попереднього висловлювання: <i>He gave me a lift, which was very kind of him.</i></div></article>
+  </div>
+</section>
+<section class="section" id="rules">
+  <div class="eyebrow">04 · QUICK REFERENCE</div><h2>Шпаргалка за 10 секунд</h2>
+  <div style="overflow-x:auto"><table class="compare"><thead><tr><th>Правило</th><th>Defining</th><th>Non-defining</th></tr></thead><tbody>
+  <tr><td>Інформація</td><td>Необхідна</td><td>Додаткова</td></tr><tr><td>Коми</td><td>❌ Немає</td><td>✅ Є</td></tr><tr><td><b>that</b></td><td>✅ Можна</td><td>❌ Не можна</td></tr><tr><td>Займенник можна опустити?</td><td>Так, якщо це додаток</td><td>Ні</td></tr><tr><td><b>whose / where</b></td><td>Можна</td><td>Можна</td></tr>
+  </tbody></table></div>
+  <div class="grid" style="margin-top:18px"><article class="card"><h3>Formal</h3><p><b>The chair <span class="key">on which</span> I'm sitting…</b></p><p class="translation">Прийменник перед which — формальніший стиль.</p></article><article class="card"><h3>Informal</h3><p><b>The chair (which/that) I'm sitting <span class="key">on</span>…</b></p><p class="translation">У розмовній англійській прийменник часто стоїть у кінці; займенник-додаток можна опустити в defining clause.</p></article></div>
+</section>
+<section class="section" id="practice">
+  <div class="eyebrow">05 · YOUR TURN</div><h2>Тренувальна вправа</h2><p class="sub">Обери правильний варіант. Після кожної відповіді побачиш пояснення. Наприкінці перевір загальний результат.</p>
+  <div class="quiz" id="quiz"></div>
+  <div class="scorebar"><div><b>Твій результат</b><p id="scoretext">Відповідай на запитання, щоб побачити результат.</p></div><div class="score" id="score">0/10</div><button class="btn secondary" onclick="resetQuiz()">Почати спочатку ↻</button></div>
+</section>
+</main>
+<footer>Мініурок з англійської граматики · Прочитай правило, порівняй приклади й перевір себе.</footer>
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('show')}
+const questions=[
+{q:"The woman ___ lives next door is a pilot.",opts:["who","which","whose"],a:0,why:"Who вживаємо для людей. Тут це підмет, тому його не можна опустити."},
+{q:"My laptop, ___ I bought last week, is already slow.",opts:["that","which","where"],a:1,why:"Це non-defining clause: потрібні коми, а that використовувати не можна."},
+{q:"The film ___ we watched yesterday was funny.",opts:["who","that","whose"],a:1,why:"Defining clause про річ: that підходить. Оскільки займенник — додаток, його можна опустити."},
+{q:"That's the boy ___ mother is a doctor.",opts:["whose","who","which"],a:0,why:"Whose означає «чий/чия» і показує належність."},
+{q:"Paris, ___ is the capital of France, attracts many tourists.",opts:["that","where","which"],a:2,why:"Це додаткова інформація про Paris, тому використовуємо which і коми."},
+{q:"The café ___ we first met is still open.",opts:["where","whose","who"],a:0,why:"Where вказує на місце, у якому відбулася дія."},
+{q:"My aunt, ___ lives in Odesa, is visiting us.",opts:["that","who","where"],a:1,why:"Non-defining clause про людину: who, обрамлений комами."},
+{q:"The student ___ won the competition is in my class.",opts:["which","— (можна пропустити)","who"],a:2,why:"Who є підметом: саме студент виграв, тому займенник не можна пропускати."},
+{q:"The shoes ___ I ordered haven't arrived.",opts:["who","which","where"],a:1,why:"Which стосується речей. Тут воно є додатком, тому можна сказати: The shoes I ordered…"},
+{q:"He helped me carry my bags, ___ was really kind of him.",opts:["that","which","who"],a:1,why:"Which може стосуватися всієї попередньої ситуації; that тут не підходить."}
+];
+const state={};
+function renderQuiz(){
+ const root=document.getElementById('quiz');root.innerHTML='';
+ questions.forEach((q,i)=>{
+  const box=document.createElement('article');box.className='q';
+  const head=document.createElement('div');head.className='qhead';
+  const num=document.createElement('div');num.className='num';num.textContent=i+1;
+  const body=document.createElement('div');body.style.flex='1';
+  const prompt=document.createElement('p');prompt.textContent=q.q;body.appendChild(prompt);
+  const opts=document.createElement('div');opts.className='options';
+  q.opts.forEach((opt,j)=>{const b=document.createElement('button');b.className='option';b.textContent=opt;b.type='button';b.onclick=()=>choose(i,j);if(state[i]===j)b.classList.add('selected');if(state[i]!==undefined&&j===q.a)b.classList.add('correct');if(state[i]===j&&j!==q.a)b.classList.add('wrong');opts.appendChild(b)});
+  body.appendChild(opts);
+  const feedback=document.createElement('div');feedback.className='feedback';feedback.id='feedback'+i;
+  if(state[i]!==undefined){feedback.textContent=(state[i]===q.a?'✓ Правильно! ':'✗ Не зовсім. ')+q.why;feedback.classList.add(state[i]===q.a?'good':'bad')}
+  body.appendChild(feedback);head.append(num,body);box.appendChild(head);root.appendChild(box);
+ });
+ updateScore();
+}
+function choose(i,j){state[i]=j;renderQuiz()}
+function updateScore(){const n=Object.keys(state).length;const score=questions.filter((q,i)=>state[i]===q.a).length;document.getElementById('score').textContent=score+'/'+questions.length;document.getElementById('scoretext').textContent=n===0?'Відповідай на запитання, щоб побачити результат.':n<questions.length?`Відповіді: ${n} з ${questions.length}. Можеш змінювати вибір.`:score===questions.length?'Чудово! Усі відповіді правильні 🎉':`Завершено! Правильних відповідей: ${score}. Переглянь пояснення вище.`}
+function resetQuiz(){Object.keys(state).forEach(k=>delete state[k]);renderQuiz();document.getElementById('practice').scrollIntoView({behavior:'smooth'})}
+function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress').style.width=(max>0?scrollY/max*100:0)+'%'}
+window.addEventListener('scroll',updateProgress);window.addEventListener('resize',updateProgress);
+renderQuiz();updateProgress();
+</script>
+</body>
+</html>
